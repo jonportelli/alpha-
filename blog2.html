@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scoop | Wellbeing Science & Nutrition</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ag-green': '#24a43a',
+                        'ag-dark': '#1a2e34',
+                    },
+                    fontFamily: {
+                        'newsreader': ['"Newsreader"', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+    /* Blog page specific styles */
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        .blog-header {
+            text-align: center;
+            padding: 5rem 1rem;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-title {
+            font-size: 3rem;
+            color: #1a2e34;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .blog-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .featured-article {
+            margin-bottom: 4rem;
+        }
+        
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-text {
+            padding: 3rem;
+        }
+        
+        .featured-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background-color: #e8f5eb;
+            color: #24a43a;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a2e34;
+            line-height: 1.2;
+        }
+        
+        .featured-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .article-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-category {
+            font-size: 0.8rem;
+            color: #24a43a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: #1a2e34;
+            line-height: 1.4;
+        }
+        
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .divider {
+            margin: 0 0.75rem;
+            color: #ccc;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #24a43a;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.75rem;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #1c7d2e;
+        }
+        
+        .newsletter-banner {
+            background-color: #1a2e34;
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0 5rem;
+        }
+        
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-button {
+            background-color: #24a43a;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .newsletter-button:hover {
+            background-color: #1c7d2e;
+        }
+        
+        .category-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            position: relative;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            display: inline-block;
+            background-color: #f8f5f0;
+            padding: 0 1.5rem;
+            font-size: 1.8rem;
+            color: #1a2e34;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-header:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+        
+        .load-more {
+            display: block;
+            width: 200px;
+            margin: 3rem auto;
+            padding: 0.75rem 1.5rem;
+            background-color: transparent;
+            color: #1a2e34;
+            border: 2px solid #1a2e34;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .load-more:hover {
+            background-color: #1a2e34;
+            color: white;
+        }
+        
+        @media (max-width: 992px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                height: 300px;
+            }
+            
+            .featured-text {
+                padding: 2rem;
+            }
+            
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-button {
+                width: 100%;
+            }
+            
+            .blog-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- Include Mobile Navigation -->
+    <div id="mobile-nav-container" class="block md:hidden">
+        <!-- mobile-nav.html will be loaded here -->
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
+        <div class="flex items-center">
+            <a href="/" class="text-3xl font-pretty font-bold text-ag-dark animate-fade-in p-6">AP1</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+            <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;">Shop</a>
+            <a href="/blog2.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Blog</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="/shop.html" class="hidden md:block btn btn-primary text-sm">Get AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+        <div class="blog-header">
+            <h1 class="blog-title">The Scoop</h1>
+            <p class="blog-description">Evidence-based insights on nutrition, wellness, and the science of living better</p>
+        </div>
+        
+        <div class="blog-container">
+            <section class="featured-article">
+                <div class="featured-content">
+                    <img src="https://via.placeholder.com/600x600" alt="Wellbeing Science" class="featured-image">
+                    <div class="featured-text">
+                        <div class="featured-category">Wellbeing</div>
+                        <h2 class="featured-title">Get the Scoop on Wellbeing Science</h2>
+                        <div class="featured-meta">
+                            <span>June 15, 2023</span>
+                            <span class="divider">|</span>
+                            <span>8 min read</span>
+                        </div>
+                        <p class="featured-excerpt">How the latest research is changing our approach to health and happiness. The science of wellbeing has seen a remarkable evolution over the past decade, transforming how we think about health.</p>
+                        <a href="article.html" class="read-more">Read the full article →</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="category-section">
+                <div class="section-header">
+                    <h2 class="section-title">Latest Articles</h2>
+                </div>
+                
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Nutrition Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Nutrition</div>
+                            <h3 class="article-title">The Microbiome Revolution: How Gut Health Affects Everything</h3>
+                            <p class="article-excerpt">New research reveals the surprising connections between gut bacteria, brain function, and overall health. Learn how to nurture your microbiome for optimal wellbeing.</p>
+                            <div class="article-meta">
+                                <span>June 8, 2023</span>
+                                <span class="divider">|</span>
+                                <span>6 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Sleep Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Sleep</div>
+                            <h3 class="article-title">Deep Sleep: The Ultimate Biohack for Brain Health</h3>
+                            <p class="article-excerpt">The latest sleep science reveals why quality rest is non-negotiable for cognitive performance, emotional regulation, and cellular repair.</p>
+                            <div class="article-meta">
+                                <span>May 29, 2023</span>
+                                <span class="divider">|</span>
+                                <span>7 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Movement Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Movement</div>
+                            <h3 class="article-title">Beyond Exercise: The Surprising Benefits of Natural Movement</h3>
+                            <p class="article-excerpt">Why conventional exercise approaches might be missing key elements. Discover how natural movement patterns can unlock better results with less effort.</p>
+                            <div class="article-meta">
+                                <span>June 1, 2023</span>
+                                <span class="divider">|</span>
+                                <span>5 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <div class="newsletter-banner">
+                <h2 class="newsletter-title">Get the latest wellbeing insights</h2>
+                <p class="newsletter-subtitle">Join our community of health-conscious readers for evidence-based tips, the latest research, and exclusive content delivered straight to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            
+            <section class="category-section">
+                <div class="section-header">
+                    <h2 class="section-title">Nutrition & Diet</h2>
+                </div>
+                
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Nutrition Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Nutrition</div>
+                            <h3 class="article-title">Chrononutrition: Why When You Eat Matters As Much As What You Eat</h3>
+                            <p class="article-excerpt">How aligning your eating patterns with your circadian rhythms can optimize metabolism, energy levels, and long-term health outcomes.</p>
+                            <div class="article-meta">
+                                <span>May 22, 2023</span>
+                                <span class="divider">|</span>
+                                <span>6 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Nutrition Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Nutrition</div>
+                            <h3 class="article-title">Polyphenols: The Plant Compounds That Could Change Your Health</h3>
+                            <p class="article-excerpt">Beyond antioxidants: How these bioactive compounds influence gene expression, gut health, and cellular aging. Plus, the top food sources to include in your diet.</p>
+                            <div class="article-meta">
+                                <span>May 15, 2023</span>
+                                <span class="divider">|</span>
+                                <span>7 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Nutrition Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Nutrition</div>
+                            <h3 class="article-title">The Science of Protein Quality: Not All Sources Are Created Equal</h3>
+                            <p class="article-excerpt">Understanding protein digestibility, amino acid profiles, and bioavailability to optimize your intake for muscle health, satiety, and overall wellbeing.</p>
+                            <div class="article-meta">
+                                <span>May 8, 2023</span>
+                                <span class="divider">|</span>
+                                <span>5 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="category-section">
+                <div class="section-header">
+                    <h2 class="section-title">Mental Wellbeing</h2>
+                </div>
+                
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Mental Health Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Mental Health</div>
+                            <h3 class="article-title">Neuroplasticity: How to Rewire Your Brain at Any Age</h3>
+                            <p class="article-excerpt">The latest science proves that our brains remain adaptable throughout life. Discover evidence-based techniques to enhance cognitive function and mental resilience.</p>
+                            <div class="article-meta">
+                                <span>May 18, 2023</span>
+                                <span class="divider">|</span>
+                                <span>8 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Mental Health Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Mental Health</div>
+                            <h3 class="article-title">The Attention Economy: Reclaiming Your Focus in a Distracted World</h3>
+                            <p class="article-excerpt">How technology shapes our cognitive patterns and practical strategies to build focus in an age of constant digital interruption.</p>
+                            <div class="article-meta">
+                                <span>May 11, 2023</span>
+                                <span class="divider">|</span>
+                                <span>6 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <img src="https://via.placeholder.com/400x300" alt="Mental Health Article" class="article-image">
+                        <div class="article-content">
+                            <div class="article-category">Mental Health</div>
+                            <h3 class="article-title">Beyond Mindfulness: The Science of Cognitive Flexibility</h3>
+                            <p class="article-excerpt">Why the ability to adapt your thinking patterns might be the most underrated mental skill. Research-backed approaches to developing this essential capacity.</p>
+                            <div class="article-meta">
+                                <span>May 4, 2023</span>
+                                <span class="divider">|</span>
+                                <span>7 min read</span>
+                            </div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <a href="#" class="load-more">Load More Articles</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">The Scoop</div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">© 2023 The Scoop. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html> 

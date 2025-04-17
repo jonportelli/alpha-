@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP1 - Comprehensive Daily Nutritional Supplement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ag-green': '#24a43a',
+                        'ag-dark': '#1a2e34',
+                    },
+                    fontFamily: {
+                        'newsreader': ['"Newsreader"', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+         /* Article specific styles */
+         body {
+            background-color: #f8f5f0;
+            color: #333;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .article-category {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background-color: #e8f5eb;
+            color: #24a43a;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a2e34;
+            line-height: 1.2;
+        }
+        
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 0.75rem;
+            object-fit: cover;
+        }
+        
+        .divider {
+            margin: 0 0.75rem;
+            color: #ccc;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            margin-bottom: 3rem;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a2e34;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1a2e34;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid #24a43a;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .article-content ul, 
+        .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .newsletter-banner {
+            background-color: #1a2e34;
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0.5rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-button {
+            background-color: #24a43a;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .newsletter-button:hover {
+            background-color: #1c7d2e;
+        }
+        
+        .author-section {
+            display: flex;
+            align-items: center;
+            background-color: #f8f5f0;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+        
+        .author-large-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 2rem;
+            object-fit: cover;
+        }
+        
+        .author-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #1a2e34;
+        }
+        
+        .author-info p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            color: #1a2e34;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: #24a43a;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .article-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #f1f1f1;
+            color: #666;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .article-tag:hover {
+            background-color: #e1e1e1;
+            color: #333;
+        }
+        
+        .related-articles {
+            margin-top: 4rem;
+        }
+        
+        .related-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a2e34;
+            text-align: center;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .related-article {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .related-article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .related-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: 1.5rem;
+        }
+        
+        .related-category {
+            font-size: 0.8rem;
+            color: #24a43a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .related-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1a2e34;
+            text-align: left;
+        }
+        
+        .related-meta {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .comments-section {
+            margin-top: 4rem;
+        }
+        
+        .comments-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a2e34;
+        }
+        
+        .comment {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #1a2e34;
+        }
+        
+        .comment-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+        
+        .comment-content {
+            margin-left: 4rem;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-large-image {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+ 
+        /* Base styles */
+        .font-pretty {
+            font-family: 'Newsreader', serif;
+        }
+        
+        /* Colors */
+        .bg-ag-green {
+            background-color: #24a43a;
+        }
+        
+        .bg-ag-dark {
+            background-color: #1a2e34;
+        }
+        
+        .bg-ag-light {
+            background-color: #f9f9f9;
+        }
+        
+        .text-ag-green {
+            color: #24a43a;
+        }
+        
+        .text-ag-dark {
+            color: #1a2e34;
+        }
+        
+        /* Animation classes */
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.6s ease-in-out;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.6s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            @apply bg-ag-green text-white px-6 py-3 rounded-full font-medium hover:bg-ag-green/90 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-secondary {
+            @apply border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-ag-dark text-ag-dark px-6 py-3 rounded-full font-medium hover:bg-ag-dark/5 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-research {
+            @apply bg-transparent border-2 border-ag-green text-ag-green px-6 py-3 rounded-full font-medium hover:bg-ag-green/10 transition-all inline-flex items-center justify-center;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #24a43a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- Include Mobile Navigation -->
+    <div id="mobile-nav-container" class="block md:hidden">
+        <!-- mobile-nav.html will be loaded here -->
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
+        <div class="flex items-center">
+            <a href="/" class="text-3xl font-pretty font-bold text-ag-dark animate-fade-in p-6">AP1</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+            <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;">Shop</a>
+            <a href="/blog2.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Blog</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="/shop.html" class="hidden md:block btn btn-primary text-sm">Get AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <main>
+        <article class="article-container">
+            <header class="article-header">
+                <span class="article-category">Wellbeing</span>
+                <h1 class="article-title">Get the Scoop on Wellbeing Science</h1>
+                <p class="article-subtitle">How the latest research is changing our approach to health and happiness</p>
+                <div class="article-meta">
+                    <img src="https://via.placeholder.com/80x80" alt="Author" class="author-image">
+                    <span class="author-name">By Dr. Emma Richards</span>
+                    <span class="divider">|</span>
+                    <span class="article-date">June 15, 2023</span>
+                    <span class="divider">|</span>
+                    <span class="read-time">8 min read</span>
+                </div>
+            </header>
+            
+            <img src="https://via.placeholder.com/800x450" alt="Wellbeing Science" class="article-image">
+            
+            <div class="article-content">
+                <p>The science of wellbeing has seen a remarkable evolution over the past decade, transforming from a niche research area to a mainstream field that influences healthcare, workplace policies, and our daily habits. The growing body of evidence has begun to reshape how we think about health, happiness, and the ingredients for a fulfilling life.</p>
+                
+                <p>Wellbeing isn't just the absence of illness or stress—it's a complex, multidimensional state that encompasses physical health, mental clarity, emotional balance, social connection, and a sense of meaning. Recent research has painted a more nuanced picture of what contributes to human flourishing, and the findings might surprise you.</p>
+                
+                <h2>The Five Pillars of Wellbeing</h2>
+                
+                <p>Modern wellbeing science has identified five core dimensions that contribute to overall life satisfaction and health outcomes:</p>
+                
+                <h3>1. Physical Wellbeing</h3>
+                <p>While we've long understood the importance of exercise, nutrition, and sleep, new research is uncovering the molecular mechanisms through which these factors influence our health. Studies using continuous glucose monitors and heart rate variability have shown how personalized approaches to diet and exercise can optimize health outcomes. The one-size-fits-all recommendations are giving way to more tailored interventions based on genetic profiles, lifestyle, and individual needs.</p>
+                
+                <h3>2. Mental Wellbeing</h3>
+                <p>Cognitive function, focus, and mental clarity are increasingly recognized as critical components of wellbeing. Research in neuroplasticity—the brain's ability to form new neural connections—has demonstrated that practices like meditation, continuous learning, and certain nutritional interventions can support optimal brain health well into later life. The evidence now suggests that cognitive decline isn't an inevitable aspect of aging but can be significantly influenced by lifestyle choices.</p>
+                
+                <h3>3. Emotional Wellbeing</h3>
+                <p>The ability to recognize, process, and regulate emotions is foundational to psychological health. New research in affective neuroscience has mapped how emotions influence immune function, cardiovascular health, and even gene expression. Interventions focused on gratitude practices, mindfulness, and emotional intelligence have shown significant improvements in both psychological and physiological measures of wellbeing.</p>
+                
+                <blockquote>
+                    "The most revolutionary finding of modern wellbeing science isn't a specific intervention—it's the recognition that our mental, emotional, and physical health are deeply interconnected systems rather than separate domains."
+                </blockquote>
+                
+                <h3>4. Social Wellbeing</h3>
+                <p>Human connection has emerged as one of the most powerful predictors of health outcomes and longevity. A landmark review in the journal Science concluded that the health risk of social isolation is comparable to that of smoking 15 cigarettes per day. The mechanisms involve everything from stress hormone regulation to immune system function. Notably, research suggests that the quality of relationships matters more than the quantity, with meaningful connections providing the greatest benefit.</p>
+                
+                <h3>5. Purpose and Meaning</h3>
+                <p>Having a sense of purpose and meaning is associated with better health outcomes, including reduced risk of heart disease, stroke, and Alzheimer's disease. Purpose appears to serve as a buffer against stress and contributes to resilience. Interestingly, purpose doesn't need to be grand or world-changing—simply having a reason to get up in the morning that aligns with your values is associated with significant benefits.</p>
+                
+                <h2>The Integration of Wellbeing Science</h2>
+                
+                <p>Perhaps the most important insight from current research is that these five dimensions don't exist in isolation. They form an integrated system where changes in one area influence all others. This systems perspective helps explain why isolated interventions often produce disappointing results—addressing just one component without considering the whole person is unlikely to create sustainable improvements in wellbeing.</p>
+                
+                <p>This integrated approach has practical implications. For instance, addressing sleep problems might involve not just better sleep hygiene, but also examining stress levels, physical activity patterns, social support, and whether your daily activities align with your values. Similarly, improving mental focus might require attention to nutrition, emotional regulation, and meaningful social connection rather than just concentration exercises.</p>
+                
+                <h2>From Science to Practice</h2>
+                
+                <p>How can we translate these scientific insights into practical approaches for everyday wellbeing? Here are some evidence-based strategies:</p>
+                
+                <ul>
+                    <li><strong>Start with small, sustainable changes.</strong> Research shows that modest, consistent adjustments are more effective than dramatic overhauls that can't be maintained.</li>
+                    <li><strong>Focus on habits rather than outcomes.</strong> The science of habit formation has demonstrated that anchoring new behaviors to existing routines significantly increases success rates.</li>
+                    <li><strong>Cultivate self-awareness.</strong> The ability to tune into your own physical sensations, emotional states, and thought patterns is foundational to wellbeing. Practices like mindfulness meditation have been shown to enhance this capacity.</li>
+                    <li><strong>Prioritize human connection.</strong> Make time for meaningful interaction with others, even if it's just a few minutes of genuine connection each day.</li>
+                    <li><strong>Find small ways to align daily activities with your values.</strong> Research suggests that even brief moments of purpose-aligned action can contribute to wellbeing.</li>
+                </ul>
+                
+                <p>As wellbeing science continues to evolve, the evidence increasingly points to an integrated, personalized approach rather than universal prescriptions. The most effective wellbeing practices are those that consider your unique biology, psychology, relationships, and sense of meaning—recognizing that health and happiness emerge from the whole system working in harmony.</p>
+            </div>
+            
+            <div class="newsletter-banner">
+                <h2 class="newsletter-title">Get the latest on wellbeing science</h2>
+                <p class="newsletter-subtitle">Join our newsletter for evidence-based insights on health, happiness, and human potential.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            
+            <div class="author-section">
+                <img src="https://via.placeholder.com/200x200" alt="Dr. Emma Richards" class="author-large-image">
+                <div class="author-info">
+                    <h3>Dr. Emma Richards</h3>
+                    <p>Emma Richards, Ph.D., is a research psychologist specializing in positive psychology and behavioral science. She has published over 50 papers on wellbeing and serves as a consultant for health organizations worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Website</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-tags">
+                <a href="#" class="article-tag">Wellbeing</a>
+                <a href="#" class="article-tag">Mental Health</a>
+                <a href="#" class="article-tag">Science</a>
+                <a href="#" class="article-tag">Happiness</a>
+                <a href="#" class="article-tag">Research</a>
+            </div>
+        </article>
+        
+        <section class="related-articles article-container">
+            <h2 class="related-title">You Might Also Like</h2>
+            <div class="related-grid">
+                <div class="related-article">
+                    <img src="https://via.placeholder.com/400x300" alt="Microbiome Article" class="related-image">
+                    <div class="related-content">
+                        <div class="related-category">Nutrition</div>
+                        <h3 class="related-title">The Microbiome Revolution: How Gut Health Affects Everything</h3>
+                        <div class="related-meta">
+                            <span>June 8, 2023</span>
+                            <span class="divider">|</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="related-article">
+                    <img src="https://via.placeholder.com/400x300" alt="Sleep Article" class="related-image">
+                    <div class="related-content">
+                        <div class="related-category">Sleep</div>
+                        <h3 class="related-title">Deep Sleep: The Ultimate Biohack for Brain Health</h3>
+                        <div class="related-meta">
+                            <span>May 29, 2023</span>
+                            <span class="divider">|</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="related-article">
+                    <img src="https://via.placeholder.com/400x300" alt="Movement Article" class="related-image">
+                    <div class="related-content">
+                        <div class="related-category">Movement</div>
+                        <h3 class="related-title">Beyond Exercise: The Surprising Benefits of Natural Movement</h3>
+                        <div class="related-meta">
+                            <span>June 1, 2023</span>
+                            <span class="divider">|</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="comments-section article-container">
+            <h2 class="comments-title">Comments (3)</h2>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+                    <div>
+                        <div class="comment-author">Sarah Johnson</div>
+                        <div class="comment-date">June 16, 2023 at 10:23 AM</div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <p>This article perfectly captures the evolution of wellbeing science! I've been following this field for years, and the shift toward an integrated approach makes so much intuitive sense. I've found that small changes in my sleep habits have cascading effects on my mental clarity, emotional regulation, and even my relationships.</p>
+                </div>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+                    <div>
+                        <div class="comment-author">Michael Lee, PhD</div>
+                        <div class="comment-date">June 16, 2023 at 2:45 PM</div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <p>As a researcher in this field, I appreciate the nuanced take on wellbeing science. One additional point worth mentioning is how cultural factors influence wellbeing dimensions. The emerging cross-cultural research suggests that while these five pillars appear universal, their relative importance and expression vary significantly across different societies. This cultural context is essential when developing wellbeing interventions.</p>
+                </div>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+                    <div>
+                        <div class="comment-author">Jennifer Adams</div>
+                        <div class="comment-date">June 17, 2023 at 9:12 AM</div>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <p>I've been trying to improve my overall wellbeing for years, bouncing between different "silver bullet" approaches without lasting success. This systems perspective makes me realize why - I was always focusing on isolated factors rather than seeing how everything connects. Starting to implement some of these evidence-based strategies today. Thank you for this insightful article!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">The Scoop</div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">© 2023 The Scoop. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
