@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AG1 | Athletic Greens</title>
+    <title>AP1 | The Daily Nutritional Drink</title>
     <style>
         :root {
             --primary-color: #2b7a57;
@@ -391,6 +391,15 @@
             .delivery-options {
                 flex-direction: column;
             }
+            
+            /* Center align hero title and text on mobile */
+            .product-info h1, 
+            .product-info .product-subtitle,
+            .product-info .rating,
+            .product-features h2,
+            .testimonials h2 {
+                text-align: center;
+            }
         }
         
         @media (max-width: 480px) {
@@ -415,39 +424,172 @@
                 font-size: 2rem;
             }
         }
+        
+        /* Newsletter Popup Styles */
+        .newsletter-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .newsletter-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .newsletter-popup {
+            background-color: white;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+        
+        .newsletter-popup-overlay.active .newsletter-popup {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: var(--light-text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+        
+        .popup-close:hover {
+            color: var(--text-color);
+        }
+        
+        .newsletter-popup-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-popup-subtitle {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .discount-highlight {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        .newsletter-popup-description {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .newsletter-input {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .newsletter-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .newsletter-submit:hover {
+            background-color: #1d5e41;
+        }
+        
+        .newsletter-no-thanks {
+            margin-top: 15px;
+            color: var(--light-text);
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .newsletter-no-thanks:hover {
+            color: var(--text-color);
+        }
+        
+        @media (max-width: 480px) {
+            .newsletter-popup {
+                padding: 25px;
+            }
+            
+            .newsletter-popup-title {
+                font-size: 1.5rem;
+            }
+            
+            .discount-highlight {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Athletic Greens</div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Reviews</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <!-- Include Header -->
+    <div id="header-container"></div>
 
     <main>
         <section class="product-section container">
             <div class="product-images">
-                <img src="https://via.placeholder.com/500x500/f0f8f5/2b7a57?text=AG1" alt="AG1 Product" class="main-image">
+                <img src="https://via.placeholder.com/500x500/f0f8f5/2b7a57?text=AP1" alt="AP1 Product" class="main-image">
                 <div class="thumbnail-container">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=1" alt="AG1 Thumbnail" class="thumbnail active">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=2" alt="AG1 Ingredients" class="thumbnail">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=3" alt="AG1 Package" class="thumbnail">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=4" alt="AG1 Usage" class="thumbnail">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=1" alt="AP1 Thumbnail" class="thumbnail active">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=2" alt="AP1 Ingredients" class="thumbnail">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=3" alt="AP1 Package" class="thumbnail">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=4" alt="AP1 Usage" class="thumbnail">
                 </div>
             </div>
             
             <div class="product-info">
-                <h1>AG1 by Athletic Greens</h1>
+                <h1>AP1 Daily Nutritional Drink</h1>
                 <p class="product-subtitle">All-in-One Daily Nutritional Supplement</p>
                 
                 <div class="rating">
@@ -497,7 +639,7 @@
         
         <section class="product-features">
             <div class="container">
-                <h2>Why Choose AG1?</h2>
+                <h2>Why Choose AP1?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">🌿</div>
@@ -572,7 +714,7 @@
                 <div class="footer-column">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="#">AG1</a></li>
+                        <li><a href="#">AP1</a></li>
                         <li><a href="#">Vitamin D3+K2</a></li>
                         <li><a href="#">Protein</a></li>
                         <li><a href="#">Gift Cards</a></li>
@@ -607,9 +749,129 @@
                 </div>
             </div>
             <div class="copyright">
-                © 2023 Athletic Greens. All rights reserved.
+                © 2023 Alpha Nutrition. All rights reserved.
             </div>
         </div>
     </footer>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup-overlay" id="newsletterPopup">
+        <div class="newsletter-popup">
+            <button class="popup-close" id="popupClose">&times;</button>
+            <h3 class="newsletter-popup-title">Before You Go...</h3>
+            <p class="newsletter-popup-subtitle">Get exclusive access to our best offers</p>
+            <span class="discount-highlight">15% OFF</span>
+            <p class="newsletter-popup-description">Sign up for our newsletter and receive a 15% discount on your first order of AG1.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-submit">Get My 15% Discount</button>
+            </form>
+            <button class="newsletter-no-thanks" id="noThanks">No thanks, I'll pay full price</button>
+        </div>
+    </div>
+
+    <script>
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+            
+        // Newsletter popup functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('newsletterPopup');
+            const closeBtn = document.getElementById('popupClose');
+            const noThanksBtn = document.getElementById('noThanks');
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            let popupShown = false;
+            let inactivityTimer;
+            let hasInteracted = false;
+            
+            // Set cookie function
+            function setCookie(name, value, days) {
+                let expires = "";
+                if (days) {
+                    const date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+            
+            // Get cookie function
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+            
+            // Show popup
+            function showPopup() {
+                if (!popupShown && !getCookie('newsletterPopupShown')) {
+                    popup.classList.add('active');
+                    popupShown = true;
+                    // Set cookie to not show again for 7 days
+                    setCookie('newsletterPopupShown', 'true', 7);
+                }
+            }
+            
+            // Close popup
+            function closePopup() {
+                popup.classList.remove('active');
+            }
+            
+            // Reset inactivity timer
+            function resetInactivityTimer() {
+                clearTimeout(inactivityTimer);
+                inactivityTimer = setTimeout(() => {
+                    if (!hasInteracted) {
+                        showPopup();
+                    }
+                }, 30000); // 30 seconds of inactivity
+            }
+            
+            // Exit intent detection
+            function handleExit(e) {
+                // If the mouse is leaving the top of the page
+                if (e.clientY < 50 && !popupShown && !getCookie('newsletterPopupShown')) {
+                    showPopup();
+                }
+            }
+            
+            // Initialize inactivity timer
+            resetInactivityTimer();
+            
+            // Event listeners
+            document.addEventListener('mousemove', resetInactivityTimer);
+            document.addEventListener('keypress', resetInactivityTimer);
+            document.addEventListener('scroll', resetInactivityTimer);
+            document.addEventListener('click', function() {
+                hasInteracted = true;
+                resetInactivityTimer();
+            });
+            
+            // Exit intent
+            document.addEventListener('mouseleave', handleExit);
+            
+            // Close popup events
+            closeBtn.addEventListener('click', closePopup);
+            noThanksBtn.addEventListener('click', closePopup);
+            
+            // Form submission
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Thank you for subscribing! Your 15% discount code will be sent to your email.');
+                closePopup();
+            });
+        });
+    </script>
 </body>
 </html> 

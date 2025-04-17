@@ -1,0 +1,235 @@
+<!-- Scroll Indicator -->
+<div class="scroll-indicator"></div>
+
+<!-- Mobile Navigation -->
+<div id="mobile-nav-container" class="block md:hidden">
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="/" class="mobile-logo">
+                <img src="https://res.cloudinary.com/deo7swsl9/image/upload/v1744908784/ap1_iwopl8.png" alt="AP1 Logo" width="90" height="36">
+            </a>
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="mobile-nav-menu" class="mobile-nav-menu">
+            <ul>
+                <li><a href="/shop.html">Shop</a></li>
+                <li><a href="/blog2.html">Blog</a></li>
+                <li><a href="#">About AP1</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">Learn</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="/product-detail.html" class="mobile-cta">Get AP1</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
+    <div class="flex items-center">
+        <a href="/" class="p-6">
+            <img src="img/ap1-logo.png" alt="AP1 Logo" width="120" height="48">
+        </a>
+    </div>
+    <div class="hidden md:flex space-x-6">
+        <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;">Shop</a>
+        <a href="/blog2.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Blog</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
+    </div>
+    <div class="flex items-center space-x-4">
+        <a href="/product-detail.html" class="hidden md:block btn-primary text-sm">Get AP1</a>
+        <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+        <a href="/shop.html#cart" class="relative text-gray-700 hover:text-green-600 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart-count">0</span>
+        </a>
+    </div>
+</nav>
+
+<style>
+    /* Mobile Navigation Styles */
+    .mobile-nav {
+        position: relative;
+    }
+
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .mobile-logo {
+        display: block;
+    }
+
+    .mobile-nav-toggle {
+        border: none;
+        background: none;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .mobile-nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        margin: 5px 0;
+        transition: all 0.3s;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        z-index: 100;
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+
+    .mobile-nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav-menu li {
+        margin: 15px 0;
+    }
+
+    .mobile-nav-menu a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        display: block;
+        transition: color 0.2s;
+    }
+
+    .mobile-nav-menu a:hover {
+        color: #2b7a57;
+    }
+
+    .mobile-cta {
+        display: inline-block;
+        background-color: #2b7a57;
+        color: white !important;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: #2b7a57;
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 1000;
+    }
+
+    /* Nav link underline animation */
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #2b7a57;
+        transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Button styles */
+    .btn-primary {
+        background-color: #2b7a57;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+        background-color: rgba(43, 122, 87, 0.9);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+
+        if (mobileNavToggle && mobileNavMenu) {
+            mobileNavToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNavMenu.classList.toggle('active');
+            });
+        }
+
+        // Scroll indicator
+        function updateScrollIndicator() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollProgress = window.scrollY / scrollableHeight;
+                scrollIndicator.style.transform = `scaleX(${scrollProgress})`;
+            }
+        }
+
+        window.addEventListener('scroll', updateScrollIndicator);
+        updateScrollIndicator(); // Initialize on page load
+    });
+</script> 

@@ -475,58 +475,11 @@
         .btn-research {
             @apply bg-transparent border-2 border-ag-green text-ag-green px-6 py-3 rounded-full font-medium hover:bg-ag-green/10 transition-all inline-flex items-center justify-center;
         }
-        
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #24a43a;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
     </style>
 </head>
 <body class="bg-white">
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator"></div>
-    
-    <!-- Include Mobile Navigation -->
-    <div id="mobile-nav-container" class="block md:hidden">
-        <!-- mobile-nav.html will be loaded here -->
-    </div>
-    
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
-        <div class="flex items-center">
-            <a href="/" class="text-3xl font-pretty font-bold text-ag-dark animate-fade-in p-6">AP1</a>
-        </div>
-        <div class="hidden md:flex space-x-6">
-            <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;">Shop</a>
-            <a href="/blog2.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Blog</a>
-            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
-            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
-            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
-        </div>
-        <div class="flex items-center space-x-4">
-            <a href="/shop.html" class="hidden md:block btn btn-primary text-sm">Get AP1</a>
-            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
-            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-            </a>
-        </div>
-    </nav>
-
+    <!-- Include Header -->
+    <div id="header-container"></div>
 
     <main>
         <article class="article-container">
@@ -730,5 +683,14 @@
             <div class="copyright">© 2023 The Scoop. All rights reserved.</div>
         </div>
     </footer>
+
+    <script>
+        // Load header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

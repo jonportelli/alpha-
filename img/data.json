@@ -1,0 +1,43 @@
+{
+  "logo": {
+    "src": "https://res.cloudinary.com/deo7swsl9/image/upload/v1744908784/ap1_iwopl8.png",
+    "alt": "AP1 Logo",
+    "width": 200,
+    "height": 80
+  },
+  "product_images": {
+    "ag1": [
+      {
+        "src": "img/ag1-main.png",
+        "alt": "AG1 Product",
+        "type": "main"
+      },
+      {
+        "src": "img/ag1-thumbnail-1.png",
+        "alt": "AG1 Thumbnail",
+        "type": "thumbnail"
+      },
+      {
+        "src": "img/ag1-thumbnail-2.png",
+        "alt": "AG1 Ingredients",
+        "type": "thumbnail"
+      },
+      {
+        "src": "img/ag1-thumbnail-3.png",
+        "alt": "AG1 Package",
+        "type": "thumbnail"
+      },
+      {
+        "src": "img/ag1-thumbnail-4.png",
+        "alt": "AG1 Usage",
+        "type": "thumbnail"
+      }
+    ]
+  },
+  "hero_images": {
+    "home": {
+      "src": "img/hero-home.jpg",
+      "alt": "AP1 Hero Image"
+    }
+  }
+} 
