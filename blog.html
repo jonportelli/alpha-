@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP1 Blog - Health & Nutrition Articles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ag-green': '#24a43a',
+                        'ag-dark': '#1a2e34',
+                    },
+                    fontFamily: {
+                        'newsreader': ['"Newsreader"', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Include Mobile Navigation -->
+    <div id="mobile-nav-container">
+        <!-- mobile-nav.html will be loaded here -->
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="px-4 py-4 flex items-center justify-between bg-white shadow-sm fixed w-full z-50">
+        <div class="flex items-center md:hidden">
+            <button class="mobile-menu-toggle mr-4 text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <a href="/" class="text-2xl font-bold text-ag-dark font-newsreader">AP1</a>
+        </div>
+        <div class="hidden md:flex items-center">
+            <a href="/" class="text-2xl font-bold text-ag-dark font-newsreader">AP1</a>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="/shop.html" class="text-sm font-medium text-gray-700 nav-link">Shop</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Ingredients</a>
+            <a href="/blog.html" class="text-sm font-medium text-gray-700 nav-link">Blog</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Learn More</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="/shop.html" class="hidden md:block btn btn-primary text-sm">Get AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="pt-32 pb-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-ag-dark mb-4 font-newsreader">AP1 Health & Nutrition Blog</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Expert insights on nutrition, wellness, and the science behind our products to help you make informed health decisions.</p>
+            </div>
+            
+            <!-- Categories/Filter Pills -->
+            <div class="py-6 overflow-x-auto">
+                <div class="flex space-x-3 min-w-max">
+                    <button class="category-pill active px-4 py-2 rounded-full bg-ag-green text-white font-medium text-sm">All</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Nutrition</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Performance</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Gut Health</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Research</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Success Stories</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Recipes</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Wellness</button>
+                    <button class="category-pill px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200 transition-colors">Product Guides</button>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto mb-12">
+                <div class="relative">
+                    <input type="text" placeholder="Search articles..." class="w-full px-4 py-3 pl-12 rounded-full border border-gray-300 focus:border-ag-green">
+                    <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/800x600/f1f1f1/1a2e34" alt="Featured Article" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                        <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full inline-block mb-4">Featured</span>
+                        <h2 class="text-3xl font-bold mb-4 text-ag-dark font-newsreader">The Science Behind AP1: How Our Formula Supports Overall Wellness</h2>
+                        <p class="text-gray-600 mb-6">Dive deep into the research and development of our signature formula and discover how each ingredient contributes to your daily well-being.</p>
+                        <div class="flex items-center mb-6">
+                            <img src="https://placehold.co/100x100/24a43a/ffffff" alt="Author" class="w-10 h-10 rounded-full object-cover mr-3">
+                            <div>
+                                <p class="text-sm font-medium text-ag-dark">Dr. Emma Mitchell</p>
+                                <p class="text-xs text-gray-500">Nutrition Scientist</p>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-auto">June 21, 2023</span>
+                        </div>
+                        <a href="/article.html" class="btn btn-primary self-start">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Nutrition Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Nutrition</span>
+                                <span class="text-gray-500 text-sm ml-auto">June 14, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">The Ultimate Guide to Greens Supplements</h3>
+                            <p class="text-gray-600 mb-4">Learn about the science behind greens powders and how they can complement your daily nutrition.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Repeat for additional articles (2-9) -->
+                <!-- Article 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Athletic Performance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Performance</span>
+                                <span class="text-gray-500 text-sm ml-auto">June 7, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">How AP1 Supports Athletic Performance</h3>
+                            <p class="text-gray-600 mb-4">Discover the key nutrients in AP1 that can help boost your energy and enhance recovery after workouts.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Gut Health" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Gut Health</span>
+                                <span class="text-gray-500 text-sm ml-auto">May 30, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">The Connection Between Gut Health and Energy</h3>
+                            <p class="text-gray-600 mb-4">Explore how the probiotics in AP1 can support your digestive system and enhance your daily energy levels.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Article 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Research" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Research</span>
+                                <span class="text-gray-500 text-sm ml-auto">May 22, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">New Study Confirms Benefits of Daily Greens Supplementation</h3>
+                            <p class="text-gray-600 mb-4">A look at the latest research showing how consistent greens powder consumption can improve various health markers.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Article 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Success Story" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Success Stories</span>
+                                <span class="text-gray-500 text-sm ml-auto">May 15, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">How Sarah Transformed Her Health with AP1</h3>
+                            <p class="text-gray-600 mb-4">Read how one customer's consistent use of AP1 helped her overcome digestive issues and regain her energy.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Article 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <a href="/article.html" class="block">
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Recipe" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-ag-green/10 text-ag-green text-xs px-3 py-1 rounded-full">Recipes</span>
+                                <span class="text-gray-500 text-sm ml-auto">May 8, 2023</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 text-ag-dark font-newsreader">5 Delicious Ways to Use AP1 Beyond the Basic Shake</h3>
+                            <p class="text-gray-600 mb-4">Try these creative recipes that incorporate AP1 into smoothie bowls, energy bites, and more for a nutritional boost.</p>
+                            <div class="flex items-center text-ag-green font-medium">
+                                Read More
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <div class="flex space-x-1">
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-ag-green text-white">1</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100">2</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100">3</button>
+                    <span class="w-10 h-10 flex items-center justify-center">...</span>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100">8</button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="py-16 bg-ag-green text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4 font-newsreader">Stay Updated with the Latest Health Insights</h2>
+                <p class="text-white/80 mb-8">Subscribe to our newsletter to receive exclusive content, tips, and early access to new articles.</p>
+                <form class="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-full text-gray-700">
+                    <button type="submit" class="btn bg-white text-ag-green hover:bg-white/90">Subscribe</button>
+                </form>
+                <p class="text-sm mt-4 text-white/70">We respect your privacy and will never share your information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ag-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-newsreader">AP1®</h3>
+                    <p class="text-gray-400">Comprehensive nutrition made convenient.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">AP1</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Bundles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Merchandise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">About</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Science</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400 text-sm">© 2023 AP1. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Load the mobile navigation component
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+            
+            // Load mobile-nav.html content
+            fetch('mobile-nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('mobile-nav-container').innerHTML = data;
+                    
+                    // Re-initialize mobile menu functionality after loading
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    const mobileNavClose = document.querySelector('.mobile-nav-close');
+                    const mobileNavWrapper = document.querySelector('.mobile-nav-wrapper');
+                    
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.addEventListener('click', function() {
+                            mobileNavWrapper.classList.add('active');
+                            document.body.classList.add('overflow-hidden');
+                        });
+                    }
+                    
+                    if (mobileNavClose) {
+                        mobileNavClose.addEventListener('click', function() {
+                            mobileNavWrapper.classList.remove('active');
+                            document.body.classList.remove('overflow-hidden');
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading mobile navigation:', error);
+                });
+                
+            // Category pill filter functionality
+            const categoryPills = document.querySelectorAll('.category-pill');
+            
+            categoryPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    // Remove active class from all pills
+                    categoryPills.forEach(p => p.classList.remove('active', 'bg-ag-green', 'text-white'));
+                    categoryPills.forEach(p => p.classList.add('bg-gray-100', 'text-gray-700'));
+                    
+                    // Add active class to clicked pill
+                    this.classList.add('active', 'bg-ag-green', 'text-white');
+                    this.classList.remove('bg-gray-100', 'text-gray-700');
+                    
+                    // TODO: Add actual filtering functionality
+                    // For now, we'll just console log which category was selected
+                    console.log('Category selected:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

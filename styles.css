@@ -74,21 +74,66 @@
   animation: pulse 2s infinite;
 }
 
-/* Button Hover Effects */
-.btn-primary {
+/* Consistent Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 9999px;
   transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #24a43a;
+  color: white;
+  border-color: #24a43a;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(36, 164, 58, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #1a2e34;
+  border-color: #1a2e34;
+}
+
+.btn-outline:hover {
+  background-color: rgba(26, 46, 52, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .btn-research {
-  background: linear-gradient(90deg, #24a43a 0%, #3cc954 100%);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: transparent;
+  color: #24a43a;
+  border-color: #24a43a;
+}
+
+.btn-research:hover {
+  background-color: rgba(36, 164, 58, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Card Hover Effects */
@@ -264,4 +309,15 @@ input:focus, button:focus {
   z-index: 1000;
   width: 0;
   transition: width 0.2s ease-out;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .hero-mobile-center {
+    text-align: center;
+  }
+  
+  .hero-mobile-center .flex-wrap {
+    justify-content: center;
+  }
 } 

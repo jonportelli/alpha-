@@ -33,7 +33,7 @@ _ **Accent colors** chosen based on the app type.
 This is called AlphaPower an **Fitness Training **  Blog and Shop with 20 products.
 - Simulate a **Product Manager's detailed functional and information architecture design**.
 - Follow the **design style** and **technical specifications** to generate a complete **Ul design plan**.
-- Create a **index.html** file with responsive design with all sections. - add javascript AOS - animate on scroll in creative ways to animate on the containers and components.  -  ##Create
-- Generate the one landing page in fine detail with all animations -use *animate on scroll* to animate the sections and use fade ins and movement as scrolling.
+- Create a **index.html** file with responsive design with all sections.- add javascript AOS - animate on scroll in creative ways to animate on the containers and components. -##Create
+- Generate the one landing page in fine detail with all animations-use *animate on scroll* to animate the sections and use fade ins and movement as scrolling.
 - use framer to animate.
--create it in a new html file with appropriate name and add links back to the main homepage ‘index.html”.    
+-create it in a new html file with appropriate name and add links back to the main homepage ‘index.html”.
