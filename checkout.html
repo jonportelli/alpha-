@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AP1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ag-green': '#24a43a',
+                        'ag-dark': '#1a2e34',
+                    },
+                    fontFamily: {
+                        'newsreader': ['"Newsreader"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Newsreader', serif;
+        }
+        .btn-primary {
+            @apply bg-ag-green text-white px-6 py-3 rounded-full font-medium hover:bg-ag-green/90 transition-all;
+        }
+        
+        .btn-secondary {
+            @apply border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-all;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-ag-dark text-ag-dark px-6 py-3 rounded-full font-medium hover:bg-ag-dark/5 transition-all;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #24a43a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        input:focus, select:focus {
+            outline: 2px solid #24a43a;
+            outline-offset: 1px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Mobile menu overlay -->
+    <div class="overlay fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    
+    <!-- Include Mobile Navigation -->
+    <div id="mobile-nav-container">
+        <!-- mobile-nav.html will be loaded here -->
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="px-4 py-4 flex items-center justify-between bg-white shadow-sm fixed w-full z-50">
+        <div class="flex items-center md:hidden">
+            <button class="mobile-menu-toggle mr-4 text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <a href="/" class="text-2xl font-bold text-ag-dark font-newsreader">AP1</a>
+        </div>
+        <div class="hidden md:flex items-center">
+            <a href="/" class="text-2xl font-bold text-ag-dark font-newsreader">AP1</a>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="/shop.html" class="text-sm font-medium text-gray-700 nav-link">Shop</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Ingredients</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Research</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Learn More</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="/shop.html" class="hidden md:block btn-primary text-sm">Get AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Checkout Content -->
+    <div class="pt-28 pb-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-ag-dark mb-8 font-newsreader">Checkout</h1>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left column - Form -->
+                <div class="lg:w-2/3">
+                    <form id="checkout-form" class="space-y-8">
+                        <!-- Customer Information -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold mb-4 border-b pb-2 font-newsreader">Customer Information</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">First Name*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your first name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Name*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your last name">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
+                                <input type="email" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your email address">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+                                <input type="tel" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your phone number">
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold mb-4 border-b pb-2 font-newsreader">Shipping Address</h2>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Street Address*</label>
+                                <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Street address">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Apartment, suite, etc. (optional)</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Apartment or suite">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">City*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="City">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">State/Province*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="State/Province">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">ZIP / Postal code*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="ZIP / Postal code">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Country*</label>
+                                <select required class="w-full p-3 border border-gray-300 rounded-lg">
+                                    <option value="">Select a country</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold mb-4 border-b pb-2 font-newsreader">Payment Information</h2>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Card Number*</label>
+                                <div class="relative">
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Card number">
+                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 flex space-x-2">
+                                        <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4h20v16H2V4zm2 2v12h16V6H4zm3 8h4v2H7v-2zm6 0h4v2h-4v-2z"></path></svg>
+                                        <svg class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm16 1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1zm-8 10V8l5 3.5L12 15z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Expiration Date*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="MM/YY">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Security Code*</label>
+                                    <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="CVC">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Name on Card*</label>
+                                <input type="text" required class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Name as it appears on card">
+                            </div>
+                        </div>
+
+                        <div class="lg:hidden">
+                            <button type="submit" class="w-full btn-primary py-4">Complete Order</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right column - Order Summary -->
+                <div class="lg:w-1/3">
+                    <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
+                        <h2 class="text-xl font-bold mb-4 border-b pb-2 font-newsreader">Order Summary</h2>
+                        
+                        <div id="checkout-items" class="mb-6">
+                            <!-- Items will be dynamically inserted here -->
+                            <div class="flex justify-between items-start mb-4 pb-4 border-b">
+                                <div class="flex items-center">
+                                    <div class="bg-gray-100 rounded-md w-16 h-16 flex-shrink-0 mr-4 overflow-hidden">
+                                        <img src="https://placehold.co/400x300/24a43a/ffffff" alt="Product" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium">AP1 Original</h3>
+                                        <p class="text-sm text-gray-500">Quantity: 1</p>
+                                    </div>
+                                </div>
+                                <span class="font-medium">$99.00</span>
+                            </div>
+                            
+                            <div class="flex justify-between items-start mb-4 pb-4 border-b">
+                                <div class="flex items-center">
+                                    <div class="bg-gray-100 rounded-md w-16 h-16 flex-shrink-0 mr-4 overflow-hidden">
+                                        <img src="https://placehold.co/400x300/24a43a/ffffff" alt="Product" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium">Premium Shaker Bottle</h3>
+                                        <p class="text-sm text-gray-500">Quantity: 1</p>
+                                    </div>
+                                </div>
+                                <span class="font-medium">$19.99</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span class="font-medium">$118.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping</span>
+                                <span class="font-medium">Free</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Tax</span>
+                                <span class="font-medium">$9.52</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between mb-6">
+                                <span class="text-lg font-bold">Total</span>
+                                <span class="text-lg font-bold">$128.51</span>
+                            </div>
+                            
+                            <div class="hidden lg:block">
+                                <button type="submit" form="checkout-form" class="w-full btn-primary py-4">Complete Order</button>
+                            </div>
+                            
+                            <div class="mt-6 text-sm text-center text-gray-500">
+                                <p>By completing your purchase, you agree to our <a href="#" class="text-ag-green hover:underline">Terms of Service</a> and <a href="#" class="text-ag-green hover:underline">Privacy Policy</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Badges Section -->
+    <section class="py-10 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-ag-green mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span class="font-medium">Secure Checkout</span>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-ag-green mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="font-medium">Fast Shipping</span>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-ag-green mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="font-medium">90-Day Guarantee</span>
+                </div>
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-ag-green mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                    <span class="font-medium">Multiple Payment Options</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ag-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-newsreader">AP1®</h3>
+                    <p class="text-gray-400">Comprehensive nutrition made convenient.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">AP1</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Bundles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Merchandise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">About</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Science</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400 text-sm">© 2023 AP1. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Complete Modal (Hidden by default) -->
+    <div id="order-complete-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full">
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-ag-green mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 font-newsreader">Order Complete!</h2>
+                <p class="mb-6">Thank you for your purchase. Your order has been placed and is being processed.</p>
+                <div class="flex flex-col space-y-3">
+                    <a href="/" class="btn-primary">Back to Home</a>
+                    <button id="close-modal" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-all">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart items from local storage
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                const cart = JSON.parse(savedCart);
+                const cartCount = document.querySelector('.cart-count');
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCount.textContent = totalItems;
+            }
+
+            // Handle form submission
+            const checkoutForm = document.getElementById('checkout-form');
+            const orderCompleteModal = document.getElementById('order-complete-modal');
+            
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show order complete modal
+                orderCompleteModal.classList.remove('hidden');
+                
+                // Clear cart
+                localStorage.removeItem('cart');
+                
+                // Reset cart count
+                document.querySelector('.cart-count').textContent = '0';
+            });
+            
+            // Close modal
+            document.getElementById('close-modal').addEventListener('click', function() {
+                orderCompleteModal.classList.add('hidden');
+            });
+
+            // Load the mobile navigation component
+            fetch('mobile-nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('mobile-nav-container').innerHTML = data;
+                    
+                    // Re-initialize mobile menu functionality after loading
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    const mobileNavClose = document.querySelector('.mobile-nav-close');
+                    const mobileNavWrapper = document.querySelector('.mobile-nav-wrapper');
+                    
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.addEventListener('click', function() {
+                            mobileNavWrapper.classList.add('active');
+                            document.body.classList.add('overflow-hidden');
+                        });
+                    }
+                    
+                    if (mobileNavClose) {
+                        mobileNavClose.addEventListener('click', function() {
+                            mobileNavWrapper.classList.remove('active');
+                            document.body.classList.remove('overflow-hidden');
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading mobile navigation:', error);
+                });
+        });
+    </script>
+</body>
+</html>

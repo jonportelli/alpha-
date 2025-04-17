@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP1 - Comprehensive Daily Nutritional Supplement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ag-green': '#24a43a',
+                        'ag-dark': '#1a2e34',
+                    },
+                    fontFamily: {
+                        'newsreader': ['"Newsreader"', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+        
+        /* Base styles */
+        .font-pretty {
+            font-family: 'Newsreader', serif;
+        }
+        
+        /* Colors */
+        .bg-ag-green {
+            background-color: #24a43a;
+        }
+        
+        .bg-ag-dark {
+            background-color: #1a2e34;
+        }
+        
+        .bg-ag-light {
+            background-color: #f9f9f9;
+        }
+        
+        .text-ag-green {
+            color: #24a43a;
+        }
+        
+        .text-ag-dark {
+            color: #1a2e34;
+        }
+        
+        /* Animation classes */
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.6s ease-in-out;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.6s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            @apply bg-ag-green text-white px-6 py-3 rounded-full font-medium hover:bg-ag-green/90 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-secondary {
+            @apply border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white/10 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-ag-dark text-ag-dark px-6 py-3 rounded-full font-medium hover:bg-ag-dark/5 transition-all inline-flex items-center justify-center;
+        }
+        
+        .btn-research {
+            @apply bg-transparent border-2 border-ag-green text-ag-green px-6 py-3 rounded-full font-medium hover:bg-ag-green/10 transition-all inline-flex items-center justify-center;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #24a43a;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+    
+    <!-- Include Mobile Navigation -->
+    <div id="mobile-nav-container">
+        <!-- mobile-nav.html will be loaded here -->
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
+        <div class="flex items-center">
+            <a href="/" class="text-3xl font-pretty font-bold text-ag-dark animate-fade-in p-6">AP1</a>
+        </div>
+        <div class="hidden md:flex space-x-6">
+            <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Shop</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
+            <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="/shop.html" class="hidden md:block btn-primary text-sm">Get AP1</a>
+            <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
+            <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white overflow-hidden">
+        <div class="container mx-auto px-4 py-12 md:py-20">
+            <!-- Mobile image first (shown on mobile, hidden on desktop) -->
+            <div class="md:hidden mb-8 flex justify-center" data-aos="fade-up">
+                <img src="https://placehold.co/600x700/24a43a/ffffff" alt="AP1 Product" class="max-w-full h-auto rounded-lg shadow-xl">
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-12 md:mb-0 md:pr-12" data-aos="fade-right">
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                        <span class="ml-2 text-sm">50,000+ verified 5-star reviews</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-newsreader font-bold text-ag-dark leading-tight mb-6">Goodbye Bloat,<br>Hello Energy</h1>
+                    <p class="text-lg text-gray-700 mb-8">AP1 is a daily health drink packed with nutrients to help alleviate bloating, support sustained energy and whole body health.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/shop.html" class="btn-primary">Buy Now</a>
+                        <a href="#" class="btn-outline">Learn More</a>
+                    </div>
+                    <div class="mt-8 flex items-center">
+                        <svg class="w-5 h-5 text-ag-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>90-day money back guarantee</span>
+                    </div>
+                </div>
+                <!-- Desktop image (hidden on mobile, shown on desktop) -->
+                <div class="hidden md:block md:w-1/2 flex justify-center">
+                    <img src="https://placehold.co/600x700/24a43a/ffffff" alt="AP1 Product" class="max-w-full h-auto rounded-lg shadow-xl" data-aos="fade-up">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Performers Section -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-ag-dark mb-12">The world's top performers  AP1</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">"I've been using AP1 since 2018 because it's so simple... that's the beauty of AP1 - it's a collection of functional elements, minerals, and probiotics."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1605803283706-9af568041f80" class="w-12 h-12 rounded-full mr-4" alt="Expert">
+                        <p class="font-semibold text-ag-dark">Performance Expert</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">"I've been using AP1 since 2018 because it's so simple... that's the beauty of AP1 - it's a collection of functional elements, minerals, and probiotics."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1605803283706-9af568041f80" class="w-12 h-12 rounded-full mr-4" alt="Expert">
+                        <p class="font-semibold text-ag-dark">Performance Expert</p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">"I've been using AP1 since 2018 because it's so simple... that's the beauty of AP1 - it's a collection of functional elements, minerals, and probiotics."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1605803283706-9af568041f80" class="w-12 h-12 rounded-full mr-4" alt="Expert">
+                        <p class="font-semibold text-ag-dark">Performance Expert</p>
+                    </div>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- All-in-One Solution Section -->
+    <section class="py-20 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-ag-dark mb-8">AP1 is a more-in-one solution</h2>
+            <div class="overflow-x-auto max-w-4xl mx-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-left py-3 text-sm font-semibold text-gray-600">Features</th>
+                            <th class="text-center py-3 text-sm font-semibold text-gray-600">AP1</th>
+                            <th class="text-center py-3 text-sm font-semibold text-gray-600">Competitor 1</th>
+                            <th class="text-center py-3 text-sm font-semibold text-gray-600">Competitor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 1</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 2</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 3</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 4</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 5</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 6</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"></td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="py-3 text-left text-sm text-gray-700">Feature 7</td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                            <td class="py-3 text-center"></td>
+                            <td class="py-3 text-center"><span class="inline-block w-4 h-4 bg-ag-green rounded-full"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section class="py-16 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-ag-dark mb-6">Get started with your AP1 journey for less than $3/day!</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/24a43a/ffffff?text=AP1+Product+Pack" alt="AP1 Product" class="rounded-lg">
+                </div>
+                <div class="md:w-1/2">
+                    <form class="bg-ag-bg p-6 rounded-lg">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded text-sm" placeholder="Your first name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" class="w-full p-2 border border-gray-300 rounded text-sm" placeholder="Your last name">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" class="w-full p-2 border border-gray-300 rounded text-sm" placeholder="Your email">
+                        </div>
+                        <button class="btn-primary w-full py-3 text-sm">Start your journey</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-ag-dark mb-10">See what our members are saying about AP1</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-16 h-16 rounded-full mb-4">
+                    <p class="text-gray-700 mb-4">"AP1 has transformed my morning routine and energy levels!"</p>
+                    <p class="font-bold">- Sarah M.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-16 h-16 rounded-full mb-4">
+                    <p class="text-gray-700 mb-4">"I've tried other supplements, but nothing compares to AP1's quality."</p>
+                    <p class="font-bold">- John D.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer" class="w-16 h-16 rounded-full mb-4">
+                    <p class="text-gray-700 mb-4">"I feel more energized and focused throughout my workday."</p>
+                    <p class="font-bold">- Emily R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Stats Section -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/3">
+                    <h2 class="text-5xl font-bold text-black leading-tight">Researched.<br>Studied.<br>Continuously<br>Improved.</h2>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="bg-green-400 text-black py-2 px-4 inline-block mb-6 font-medium">
+                        IN A SINGLE-ARM STUDY+
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-6">
+                        <div>
+                            <span class="text-[8rem] font-bold leading-none">97%</span>
+                            <p class="text-xl mt-2">of participants felt more energy after 30 days*</p>
+                        </div>
+                        <div>
+                            <span class="text-[8rem] font-bold leading-none">80%</span>
+                            <p class="text-xl mt-2">noticed less gas & bloating after 30 days*</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-500 italic mb-8">*In a third-party, single-arm study conducted on 35 healthy adults ages 25-45 assessing the self-perceived efficacy of AG1 over 90 days.</p>
+                    
+                    <a href="#" class="btn-research">See Our Research Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-ag-dark mb-4">Whole body benefits in one scoop</h2>
+            <p class="text-gray-600 mb-10">From gut health to immunity support, AP1 delivers comprehensive nutrition for overall wellness</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-zoom">
+                        <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?crop&w=400&q=60" alt="Focus & Energy" class="w-full h-48 object-cover rounded-lg mb-4">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Gut health</h3>
+                    <p class="text-gray-600">Support digestive balance with probiotics and prebiotics</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-zoom">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="Focus & Energy" class="w-full h-48 object-cover rounded-lg mb-4">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Focus & energy</h3>
+                    <p class="text-gray-600">Improve mental clarity and sustainable energy</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="img-zoom">
+                        <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="Stress & mood balance" class="w-full h-48 object-cover rounded-lg mb-4">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Stress & mood balance</h3>
+                    <p class="text-gray-600">Support your body's stress response system</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="img-zoom">
+                        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="Immune defense" class="w-full h-48 object-cover rounded-lg mb-4">
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Immune defense</h3>
+                    <p class="text-gray-600">Strengthen your body's natural defense systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="py-16 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-ag-dark mb-10">FAQs</h2>
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="faq-button flex justify-between items-center w-full text-left">
+                        <span class="font-medium">What is AP1?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="pt-4 pb-2 text-gray-600">AP1 is a comprehensive daily nutritional supplement that contains 75 high-quality vitamins, minerals, and whole-food sourced nutrients in one convenient daily serving.</p>
+                    </div>
+                </div>
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="faq-button flex justify-between items-center w-full text-left">
+                        <span class="font-medium">How do I take AP1?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="pt-4 pb-2 text-gray-600">Simply mix one scoop with 8-12 oz of cold water. For best results, consume daily on an empty stomach.</p>
+                    </div>
+                </div>
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="faq-button flex justify-between items-center w-full text-left">
+                        <span class="font-medium">What are the benefits of AP1?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="pt-4 pb-2 text-gray-600">AP1 supports gut health, energy, recovery, immune function, and hormonal balance. Most users report improved energy, digestion, and overall well-being within 2-3 weeks of consistent use.</p>
+                    </div>
+                </div>
+                <div class="border-b border-gray-200 pb-4">
+                    <button class="faq-button flex justify-between items-center w-full text-left">
+                        <span class="font-medium">Is AP1 suitable for everyone?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="pt-4 pb-2 text-gray-600">AP1 is designed for adults. If you're pregnant, nursing, or have a medical condition, please consult your healthcare provider before use. AP1 is free from common allergens but always check the ingredient list if you have specific allergies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="py-16 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-ag-dark mb-6">Get featured on #LiveAP1</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60" alt="Social media post" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.unsplash.com/photo-1611073061835-e77b1b16d3f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60" alt="Social media post" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.unsplash.com/photo-1579126038374-6064e9370f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60" alt="Social media post" class="w-full h-40 object-cover rounded-lg">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60" alt="Social media post" class="w-full h-40 object-cover rounded-lg">
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-ag-light text-dark py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6">AP1®</h3>
+                    <p class="text-600 mb-6">Comprehensive nutrition made convenient.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-600 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+                        </a>
+                        <!-- ... other social icons ... -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Shop</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">AP1</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Bundles</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Merchandise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">About</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Science</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Shipping</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Returns</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Accessibility</a></li>
+                        <li><a href="#" class="text-600 hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-600 text-sm mb-4 md:mb-0">© 2024 AP1. All rights reserved.</p>
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="text-600 hover:text-white transition-colors text-sm">Terms</a>
+                    <a href="#" class="text-600 hover:text-white transition-colors text-sm">Privacy</a>
+                    <a href="#" class="text-600 hover:text-white transition-colors text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Load the mobile navigation component
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load mobile-nav.html content
+            fetch('mobile-nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('mobile-nav-container').innerHTML = data;
+                    
+                    // Re-initialize mobile menu functionality after loading
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    const mobileNavClose = document.querySelector('.mobile-nav-close');
+                    const mobileNavWrapper = document.querySelector('.mobile-nav-wrapper');
+                    
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.addEventListener('click', function() {
+                            mobileNavWrapper.classList.add('active');
+                            document.body.classList.add('overflow-hidden');
+                        });
+                    }
+                    
+                    if (mobileNavClose) {
+                        mobileNavClose.addEventListener('click', function() {
+                            mobileNavWrapper.classList.remove('active');
+                            document.body.classList.remove('overflow-hidden');
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading mobile navigation:', error);
+                });
+        });
+    </script>
+</body>
+</html>

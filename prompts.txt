@@ -1,0 +1,39 @@
+AP1
+
+# Knowledge Base Feature Implementation
+As you complete tasks and reference relevant files update this file as our memory to help with
+future
+
+You are a **senior front-end developer**
+
+## Design Style
+- follow the screenshot exactly for one continuous landing page.
+- Include all sections, hero, stats, testimonials, video placeholders, stats, footer. Every detail. 
+- A **perfect balance** between **elegant minimalism** and **functional design**.
+- Match screenshot color palette, copy look and feel exactly.
+- **Well-proportioned white space** for a clean layout.
+- **Light and immersive** user experience.
+- **Clear information hierarchy** using **subtle shadows and modular card layouts**.
+- **Natural focus** on core functionalities.
+
+- **Delicate micro-interactions**.
+
+_ **Accent colors** chosen based on the app type.
+
+## Technical Specifications
+1. **Each page should be created with full screen background image, responsive design for mobile portrait, tablet and desktop screen sizes" 
+2. **Icons**: Use an **online vector icon library™* (icons **must not** have background blocks, baseplate
+3. **Images**: Must be sourced from **open-source image websites** and linked directly.
+4. **Styles**: Use **Tailwind CSS** via **CDN** for styling.
+5. **Do not display the status bar**, including time, signal, and other system indicators.
+6. **Do not display non-mobile elements**, such as scrollbars.
+7. **All text should be only black or white**.
+
+## Task
+This is called AlphaPower an **Fitness Training **  Blog and Shop with 20 products.
+- Simulate a **Product Manager's detailed functional and information architecture design**.
+- Follow the **design style** and **technical specifications** to generate a complete **Ul design plan**.
+- Create a **index.html** file with responsive design with all sections. - add javascript AOS - animate on scroll in creative ways to animate on the containers and components.  -  ##Create
+- Generate the one landing page in fine detail with all animations -use *animate on scroll* to animate the sections and use fade ins and movement as scrolling.
+- use framer to animate.
+-create it in a new html file with appropriate name and add links back to the main homepage ‘index.html”.    

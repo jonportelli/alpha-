@@ -1,0 +1,267 @@
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom Classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-in-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-in-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Button Hover Effects */
+.btn-primary {
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-research {
+  background: linear-gradient(90deg, #24a43a 0%, #3cc954 100%);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #24a43a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1c7d2e;
+}
+
+/* Additional Utilities */
+.text-gradient {
+  background: linear-gradient(90deg, #24a43a 0%, #3cc954 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gradient {
+  border-image: linear-gradient(90deg, #24a43a 0%, #3cc954 100%) 1;
+  border-width: 2px;
+  border-style: solid;
+}
+
+/* Focus styles */
+input:focus, button:focus {
+  outline: 2px solid #24a43a;
+  outline-offset: 2px;
+}
+
+/* Custom shadows */
+.shadow-green {
+  box-shadow: 0 4px 12px rgba(36, 164, 58, 0.15);
+}
+
+/* Text animations */
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.animated-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.animated-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.animated-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.animated-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Image animations */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Framer-like animations */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-animation > *:nth-child(1) {
+  animation: slideUp 0.6s 0.1s forwards;
+}
+
+.stagger-animation > *:nth-child(2) {
+  animation: slideUp 0.6s 0.2s forwards;
+}
+
+.stagger-animation > *:nth-child(3) {
+  animation: slideUp 0.6s 0.3s forwards;
+}
+
+.stagger-animation > *:nth-child(4) {
+  animation: slideUp 0.6s 0.4s forwards;
+}
+
+.stagger-animation > *:nth-child(5) {
+  animation: slideUp 0.6s 0.5s forwards;
+}
+
+/* Mobile menu animations */
+.mobile-menu {
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.translate-x-0 {
+  transform: translateX(0);
+}
+
+.mobile-menu.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+/* Overlay animations */
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #24a43a;
+  animation: progressLoad 1.5s ease-in-out forwards;
+}
+
+@keyframes progressLoad {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width, 0%);
+  }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #24a43a;
+  z-index: 1000;
+  width: 0;
+  transition: width 0.2s ease-out;
+} 

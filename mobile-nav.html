@@ -1,0 +1,170 @@
+<!-- Mobile Navigation Component -->
+<div class="mobile-nav-wrapper fixed top-0 left-0 w-full h-full z-50 transition-all duration-300 ease-in-out">
+  <!-- Top Navigation Bar -->
+  <div class="mobile-nav-header bg-white flex items-center justify-between p-4 shadow-sm">
+    <a href="/" class="flex">
+      <img src="img/ap1-logo.png" alt="AP1" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/120x40/1a2e34/ffffff?text=AP1';">
+    </a>
+    <div class="flex items-center gap-2">
+      <a href="/shop.html" class="bg-ag-green text-white px-6 py-2 rounded-full text-sm font-medium inline-flex items-center justify-center hover:bg-ag-green/90 transition-all">
+        Get AP1
+      </a>
+      <button class="mobile-nav-close px-2 text-gray-700">
+        <span class="text-lg font-medium">CLOSE</span>
+        <svg class="inline-block w-6 h-6 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Menu Content -->
+  <div class="mobile-nav-content bg-white h-[calc(100%-76px)] overflow-y-auto">
+    <!-- Sign In Row -->
+    <div class="border-b border-gray-200">
+      <div class="flex items-center justify-between p-6">
+        <a href="/login" class="text-2xl font-medium">Sign In</a>
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Shop Section -->
+    <div class="border-b border-gray-200 py-6 px-6">
+      <h2 class="uppercase text-gray-500 text-sm font-medium mb-4">SHOP</h2>
+      <ul class="space-y-5">
+        <li><a href="/shop.html" class="text-2xl font-medium block">Daily Health</a></li>
+        <li><a href="/shop.html#bundles" class="text-2xl font-medium block">Bundles</a></li>
+        <li><a href="/shop.html#all" class="text-2xl font-medium block">Shop All</a></li>
+      </ul>
+    </div>
+
+    <!-- Customer Favorites Section -->
+    <div class="py-6 px-6 border-b border-gray-200">
+      <h2 class="uppercase text-gray-500 text-sm font-medium mb-4">CUSTOMER FAVORITES</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Product 1 -->
+        <a href="/shop.html" class="block">
+          <div class="bg-gray-100 rounded-lg overflow-hidden mb-2">
+            <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="Customize Your Own Bundle" class="w-full">
+          </div>
+          <h3 class="text-lg font-medium">Customize Your Own Bundle</h3>
+        </a>
+        
+        <!-- Product 2 -->
+        <a href="/shop.html" class="block">
+          <div class="bg-gray-100 rounded-lg overflow-hidden mb-2">
+            <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="Full Foundation Stack" class="w-full">
+          </div>
+          <h3 class="text-lg font-medium">Full Foundation Stack</h3>
+        </a>
+        
+        <!-- Product 3 -->
+        <a href="/shop.html" class="block">
+          <div class="bg-gray-100 rounded-lg overflow-hidden mb-2">
+            <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="AP1 Pouch" class="w-full">
+          </div>
+          <h3 class="text-lg font-medium">AP1 Pouch</h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- Learn More Section -->
+    <div class="border-b border-gray-200 py-6 px-6">
+      <h2 class="uppercase text-gray-500 text-sm font-medium mb-4">LEARN MORE</h2>
+      <ul class="space-y-5">
+        <li><a href="/ingredients.html" class="text-2xl font-medium block">Ingredients</a></li>
+        <li><a href="/reviews.html" class="text-2xl font-medium block">Reviews</a></li>
+        <li><a href="/quality.html" class="text-2xl font-medium block">Quality & Testing</a></li>
+        <li><a href="/about.html" class="text-2xl font-medium block">What is AP1?</a></li>
+        <li><a href="/nutrition.html" class="text-2xl font-medium block">Foundational Nutrition</a></li>
+        <li><a href="/impact.html" class="text-2xl font-medium block">Our Impact</a></li>
+        <li><a href="/research.html" class="text-2xl font-medium block">Research</a></li>
+      </ul>
+    </div>
+
+    <!-- Accessibility Controls -->
+    <div class="p-6">
+      <button class="accessibility-toggle p-3 border border-gray-300 rounded-full">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v8M8 12h8" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Header with Toggle Button -->
+<header class="bg-white shadow-sm">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <button class="mobile-menu-toggle mr-4 text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <a href="/" class="text-2xl font-bold text-ag-dark">AP1</a>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <a href="#" class="text-sm font-medium text-gray-700 nav-link relative">Sign In</a>
+        <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Mobile Navigation Styles */
+  .mobile-nav-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+  }
+  
+  .mobile-nav-wrapper.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  .mobile-nav-header {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-menu-toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+    const mobileNavWrapper = document.querySelector('.mobile-nav-wrapper');
+    
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', function() {
+        mobileNavWrapper.classList.add('active');
+        document.body.classList.add('overflow-hidden');
+      });
+    }
+    
+    if (mobileNavClose) {
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavWrapper.classList.remove('active');
+        document.body.classList.remove('overflow-hidden');
+      });
+    }
+  });
+</script> 
