@@ -24,6 +24,7 @@
 - [x] implement lazy loading for non-critical elements
 
 ## In Progress Tasks
+-[] Fix imports and tags so @blog2 can display images
 -[]change popup with newsletter and 15% discount email signup, pops up after 7 seconds of activity or before user is leaving the site. on display maximum two times per visit.
 - [ ] optimize product images with better compression and formats
 - [ ] add accessibility improvements (aria labels, keyboard navigation)
