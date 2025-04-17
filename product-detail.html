@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AP1 | The Daily Nutritional Drink</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="img/ap1-logo.png" as="image">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="header.html" as="fetch" crossorigin>
+    <link rel="preload" href="footer.html" as="fetch" crossorigin>
+    
     <style>
         :root {
             --primary-color: #2b7a57;
@@ -581,10 +588,10 @@
             <div class="product-images">
                 <img src="https://via.placeholder.com/500x500/f0f8f5/2b7a57?text=AP1" alt="AP1 Product" class="main-image">
                 <div class="thumbnail-container">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=1" alt="AP1 Thumbnail" class="thumbnail active">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=2" alt="AP1 Ingredients" class="thumbnail">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=3" alt="AP1 Package" class="thumbnail">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=4" alt="AP1 Usage" class="thumbnail">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=1" alt="AP1 Thumbnail" class="thumbnail active" loading="lazy">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=2" alt="AP1 Ingredients" class="thumbnail" loading="lazy">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=3" alt="AP1 Package" class="thumbnail" loading="lazy">
+                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=4" alt="AP1 Usage" class="thumbnail" loading="lazy">
                 </div>
             </div>
             
@@ -642,32 +649,32 @@
                 <h2>Why Choose AP1?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🌿</div>
+                        <div class="feature-icon" aria-hidden="true">🌿</div>
                         <h3>75 High-Quality Ingredients</h3>
                         <p>Comprehensive nutrition with vitamins, minerals, adaptogens, and probiotics in one scoop.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🔬</div>
+                        <div class="feature-icon" aria-hidden="true">🔬</div>
                         <h3>Science-Backed Formula</h3>
                         <p>Developed by nutritionists and doctors to support energy, immunity, gut health, and recovery.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
+                        <div class="feature-icon" aria-hidden="true">⚡</div>
                         <h3>Daily Energy & Performance</h3>
                         <p>Supports cellular function and helps maintain steady energy throughout the day.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🦠</div>
+                        <div class="feature-icon" aria-hidden="true">🦠</div>
                         <h3>Gut Health & Digestion</h3>
                         <p>Contains prebiotics, probiotics, and digestive enzymes for optimal gut function.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-icon" aria-hidden="true">🛡️</div>
                         <h3>Immune System Support</h3>
                         <p>Provides key nutrients that help maintain a strong immune system year-round.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🍃</div>
+                        <div class="feature-icon" aria-hidden="true">🍃</div>
                         <h3>Clean & Natural</h3>
                         <p>NSF Certified for Sport®, vegan, dairy-free, gluten-free, with no artificial additives.</p>
                     </div>
@@ -708,51 +715,8 @@
         </section>
     </main>
     
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="#">AP1</a></li>
-                        <li><a href="#">Vitamin D3+K2</a></li>
-                        <li><a href="#">Protein</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Learn</h3>
-                    <ul>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Ingredients</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Podcast</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Returns</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                © 2023 Alpha Nutrition. All rights reserved.
-            </div>
-        </div>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
 
     <!-- Newsletter Popup -->
     <div class="newsletter-popup-overlay" id="newsletterPopup">
@@ -776,6 +740,13 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-container').innerHTML = data;
+            });
+            
+        // Load footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
             });
             
         // Newsletter popup functionality

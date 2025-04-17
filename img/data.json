@@ -1,7 +1,13 @@
 {
   "logo": {
-    "src": "https://res.cloudinary.com/deo7swsl9/image/upload/v1744908784/ap1_iwopl8.png",
+    "src": "https://res.cloudinary.com/deo7swsl9/image/upload/v1744909336/AP1-white_gwc8cx.png",
     "alt": "AP1 Logo",
+    "width": 200,
+    "height": 80
+  },
+  "logo_white": {
+    "src": "https://res.cloudinary.com/deo7swsl9/image/upload/v1744909336/AP1-white_gwc8cx.png",
+    "alt": "AP1 Logo White",
     "width": 200,
     "height": 80
   },
