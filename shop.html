@@ -757,17 +757,18 @@
             });
             
             // Cart icon click event
-            const cartIcon = document.querySelector('a[href="#cart"]');
-            cartIcon.addEventListener('click', function(e) {
-                e.preventDefault();
-                const cartSection = document.getElementById('cart');
-                cartSection.classList.toggle('hidden');
-                
-                // Populate cart if it's being shown
-                if (!cartSection.classList.contains('hidden')) {
-                    populateCart();
-                }
-            });
+            const cartIcon = document.querySelector('a[href="/shop.html#cart"]');
+            if (cartIcon) {
+                cartIcon.setAttribute('href', '/checkout.html');
+                cartIcon.addEventListener('click', function(e) {
+                    // Don't prevent default to allow navigation to checkout.html
+                    // Check if cart has items before navigating
+                    if (cart.length === 0) {
+                        e.preventDefault();
+                        showMessage('Your cart is empty!');
+                    }
+                });
+            }
             
             // Function to populate cart
             function populateCart() {

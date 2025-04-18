@@ -32,6 +32,9 @@
 - [x] make list of missing / 404 image links. append to file missing.txt
 - [x] change all light green elements to #49de80
 - [x] refactor styles from @article.html into tailwind.
+- [x] fix cart icon click action to link to checkout page. 
+- [x] move the checkout section to checkout.html layout and functionality, it's showing the menu nav overlay at the moment
+- [x] update checkout.html to match exact styling and layout of checkout section in shop.html
 
 ## Tasks In Progress
 
