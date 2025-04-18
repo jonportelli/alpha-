@@ -1,0 +1,28 @@
+I have a PRD for a front-end UI project using Next.js, TypeScript, Tailwind CSS, and Supabase.
+I'd like to generate a comprehensive task list following these instructions:
+
+1. Read through the PRD sections below
+2. Break down the requirements into actionable development tasks
+3. Follow these rules:
+   - Break down UI components into atomic, reusable pieces
+   - Design tasks should follow a mobile-first responsive approach
+   - All components and functions should have proper TypeScript types defined
+   - Use Next.js data fetching methods appropriate for the component type
+   - Follow consistent patterns for Supabase CRUD operations and Auth
+
+4. Format each task in this structure:
+   - [ ] {task description} {priority emoji} {time estimate}
+   
+5. Group tasks by these categories:
+   - Planning
+   - Design System
+   - Component Development
+   - Page Layout
+   - API Integration
+   - Authentication
+   - Testing
+   - Performance Optimization
+   - Documentation
+
+PRD sections:
+[Paste relevant PRD sections here]

@@ -1,0 +1,51 @@
+{
+    "version": "1.0.0",
+    "projectName": "Frontend UI Development",
+    "taskFormat": {
+      "template": "- [ ] {task} {priority} {estimate}",
+      "priorityLabels": {
+        "high": "🔴",
+        "medium": "🟠",
+        "low": "🟢"
+      },
+      "estimateFormat": "{hours}h"
+    },
+    "categories": [
+      "Planning",
+      "Design System",
+      "Component Development",
+      "Page Layout",
+      "API Integration",
+      "Authentication",
+      "Testing",
+      "Performance Optimization",
+      "Documentation"
+    ],
+    "rules": [
+      {
+        "name": "Always break down components",
+        "description": "Break down UI components into atomic, reusable pieces"
+      },
+      {
+        "name": "Mobile-first approach",
+        "description": "Design tasks should follow a mobile-first responsive approach"
+      },
+      {
+        "name": "TypeScript typing",
+        "description": "All components and functions should have proper TypeScript types defined"
+      },
+      {
+        "name": "Data fetching patterns",
+        "description": "Use Next.js data fetching methods appropriate for the component type"
+      },
+      {
+        "name": "Supabase integration patterns",
+        "description": "Follow consistent patterns for Supabase CRUD operations and Auth"
+      }
+    ],
+    "prdToTaskWorkflow": {
+      "featureToTasksMapping": true,
+      "includeAcceptanceCriteria": true,
+      "estimateComplexity": true
+    }
+  }
