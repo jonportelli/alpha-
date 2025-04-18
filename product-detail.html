@@ -586,12 +586,12 @@
     <main>
         <section class="product-section container">
             <div class="product-images">
-                <img src="https://via.placeholder.com/500x500/f0f8f5/2b7a57?text=AP1" alt="AP1 Product" class="main-image">
+                <img src="https://res.cloudinary.com/deo7swsl9/image/upload/v1744978512/products/ap1-original_webp_fkmcgd.webp" alt="AP1 Product" class="main-image">
                 <div class="thumbnail-container">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=1" alt="AP1 Thumbnail" class="thumbnail active" loading="lazy">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=2" alt="AP1 Ingredients" class="thumbnail" loading="lazy">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=3" alt="AP1 Package" class="thumbnail" loading="lazy">
-                    <img src="https://via.placeholder.com/80x80/f0f8f5/2b7a57?text=4" alt="AP1 Usage" class="thumbnail" loading="lazy">
+                    <img src="https://res.cloudinary.com/deo7swsl9/image/upload/c_scale,w_80/v1744978512/products/ap1-original_webp_fkmcgd.webp" alt="AP1 Thumbnail" class="thumbnail active" loading="lazy">
+                    <img src="https://res.cloudinary.com/deo7swsl9/image/upload/c_scale,w_80/v1744978512/products/ap1-ingredients_webp_jzsgsj.webp" alt="AP1 Ingredients" class="thumbnail" loading="lazy">
+                    <img src="https://res.cloudinary.com/deo7swsl9/image/upload/c_scale,w_80/v1744978512/products/ap1-package_webp_l8ngoz.webp" alt="AP1 Package" class="thumbnail" loading="lazy">
+                    <img src="https://res.cloudinary.com/deo7swsl9/image/upload/c_scale,w_80/v1744978512/products/ap1-usage_webp_tmiokr.webp" alt="AP1 Usage" class="thumbnail" loading="lazy">
                 </div>
             </div>
             
@@ -757,79 +757,32 @@
             const newsletterForm = document.getElementById('newsletterForm');
             
             let popupShown = false;
-            let inactivityTimer;
-            let hasInteracted = false;
-            
-            // Set cookie function
-            function setCookie(name, value, days) {
-                let expires = "";
-                if (days) {
-                    const date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "") + expires + "; path=/";
-            }
-            
-            // Get cookie function
-            function getCookie(name) {
-                const nameEQ = name + "=";
-                const ca = document.cookie.split(';');
-                for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
+            let popupDisplayCount = 0;
+            const maxDisplays = 2;
             
             // Show popup
             function showPopup() {
-                if (!popupShown && !getCookie('newsletterPopupShown')) {
+                if (!popupShown && popupDisplayCount < maxDisplays) {
                     popup.classList.add('active');
                     popupShown = true;
-                    // Set cookie to not show again for 7 days
-                    setCookie('newsletterPopupShown', 'true', 7);
+                    popupDisplayCount++;
+                    console.log(`Popup shown ${popupDisplayCount} times`);
+                    
+                    // Schedule next popup after 20 seconds if we haven't hit max displays
+                    if (popupDisplayCount < maxDisplays) {
+                        setTimeout(showPopup, 20000);
+                    }
                 }
             }
             
             // Close popup
             function closePopup() {
                 popup.classList.remove('active');
+                popupShown = false;
             }
             
-            // Reset inactivity timer
-            function resetInactivityTimer() {
-                clearTimeout(inactivityTimer);
-                inactivityTimer = setTimeout(() => {
-                    if (!hasInteracted) {
-                        showPopup();
-                    }
-                }, 30000); // 30 seconds of inactivity
-            }
-            
-            // Exit intent detection
-            function handleExit(e) {
-                // If the mouse is leaving the top of the page
-                if (e.clientY < 50 && !popupShown && !getCookie('newsletterPopupShown')) {
-                    showPopup();
-                }
-            }
-            
-            // Initialize inactivity timer
-            resetInactivityTimer();
-            
-            // Event listeners
-            document.addEventListener('mousemove', resetInactivityTimer);
-            document.addEventListener('keypress', resetInactivityTimer);
-            document.addEventListener('scroll', resetInactivityTimer);
-            document.addEventListener('click', function() {
-                hasInteracted = true;
-                resetInactivityTimer();
-            });
-            
-            // Exit intent
-            document.addEventListener('mouseleave', handleExit);
+            // Show initial popup after 1 second
+            setTimeout(showPopup, 1000);
             
             // Close popup events
             closeBtn.addEventListener('click', closePopup);
@@ -841,6 +794,26 @@
                 // Here you would typically send the form data to your server
                 alert('Thank you for subscribing! Your 15% discount code will be sent to your email.');
                 closePopup();
+                
+                // Set display count to max to prevent further displays
+                popupDisplayCount = maxDisplays;
+            });
+        });
+
+        // Thumbnail functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.querySelector('.main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Update main image src
+                    mainImage.src = this.src.replace('c_scale,w_80/', '');
+                    
+                    // Update active thumbnail
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    this.classList.add('active');
+                });
             });
         });
     </script>

@@ -22,26 +22,37 @@
 - [x] add preload directives for critical assets to improve page loading
 - [x] improve mobile responsiveness for all pages
 - [x] implement lazy loading for non-critical elements
+- [x] make EUR default currency and add currency selector on shop page header
+- [x] change popup with newsletter and 15% discount email signup, pops up after 7 seconds of activity or before user is leaving the site. on display maximum two times per visit.
+- [x] optimize product images with better compression and formats
+- [x] add accessibility improvements (aria labels, keyboard navigation)
+- [x] newsletter popup dialog with signup form needs fixing. needs to show every 20 seconds at least twice per visit. remove all other functionality associated with sessional storage.
+- [x] replace missing image placeholder images using <img src="https://placehold.co/600x400?text=ap-1" ... for example for shop products. match the filename structure to the image dimensions needed.
+- [x] use https://pravatar.cc/images for any avatar images for commentor or authors in the @article.html, @blog.html or @blog2.html pages.
+- [x] make list of missing / 404 image links. append to file missing.txt
+- [x] change all light green elements to #49de80
+- [x] refactor styles from @article.html into tailwind.
 
-## In Progress Tasks
-
--[] Fix imports and tags so @blog2 can display images
--[]change popup with newsletter and 15% discount email signup, pops up after 7 seconds of activity or before user is leaving the site. on display maximum two times per visit.
-- [ ] optimize product images with better compression and formats
-- [ ] add accessibility improvements (aria labels, keyboard navigation)
-
+## Tasks In Progress
 
 ## Future Tasks
-- [] looping video on homepage
+
 - [ ] add product search functionality
 - [ ] implement user accounts and login/registration
 - [ ] create checkout process with cart functionality
 - [ ] add product reviews and ratings system
 - [ ] implement A/B testing for different landing page layouts
 - [ ] implement language selection option
+- [ ] looping video on homepage
+- [ ] create Next.js TypeScript and Tailwind app structure according to migration plan
+- [ ] implement reusable component library based on existing UI elements
+- [ ] set up Supabase backend integration for product data
+- [ ] integrate Cloudinary for optimized image management
+- [ ] implement responsive design system following Tailwind best practices
 
 ## Implementation Plan
-1. Complete all "In Progress Tasks"  first. 
-2. Prioritize "Future Tasks" based on business impact.
-3. Implement features in 2-week sprint cycles
-4. Review performance and user feedback after each implementation
+1. Prioritize "Future Tasks" based on business impact.
+2. Implement features in 2-week sprint cycles
+3. Review performance and user feedback after each implementation
+4. Follow the migration process outlined in the PRD document
+5. Maintain regular client touchpoints as specified in client-touchpoints.md

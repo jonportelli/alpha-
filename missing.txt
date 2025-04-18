@@ -1,0 +1,56 @@
+# Missing or Placeholder Image Links
+
+## Shop Page Images
+1. shop.html:246 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Sleep Formula" class="w-full h-64 object-cover">
+2. shop.html:263 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Focus" class="w-full h-64 object-cover">
+3. shop.html:280 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Shaker Bottle" class="w-full h-64 object-cover">
+4. shop.html:297 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 T-Shirt" class="w-full h-64 object-cover">
+5. shop.html:314 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Bundle" class="w-full h-64 object-cover">
+6. shop.html:331 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Travel Packs" class="w-full h-64 object-cover">
+7. shop.html:348 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Vitamin D3+K2" class="w-full h-64 object-cover">
+8. shop.html:365 - <img src="https://placehold.co/600x400?text=ap-1" alt="AP1 Water Bottle" class="w-full h-64 object-cover">
+
+## Blog Page Images
+1. blog.html:220 - <img src="https://placehold.co/800x600/f1f1f1/1a2e34" alt="Featured Article" class="w-full h-full object-cover">
+2. blog.html:227 - <img src="https://placehold.co/100x100/24a43a/ffffff" alt="Author" class="w-10 h-10 rounded-full object-cover mr-3">
+3. blog.html:249 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Nutrition Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+4. blog.html:273 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Athletic Performance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+5. blog.html:296 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Gut Health" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+6. blog.html:319 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Research" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+7. blog.html:342 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Success Story" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+8. blog.html:365 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Recipe" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+
+## Mobile Navigation Images
+1. mobile-nav.html:49 - <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="Customize Your Own Bundle" class="w-full">
+2. mobile-nav.html:57 - <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="Full Foundation Stack" class="w-full">
+3. mobile-nav.html:65 - <img src="https://placehold.co/300x300/f1f1f1/1a2e34" alt="AP1 Pouch" class="w-full">
+
+## Article Page Images
+1. article.html:491 - <img src="https://via.placeholder.com/80x80" alt="Author" class="author-image">
+2. article.html:500 - <img src="https://via.placeholder.com/800x450" alt="Wellbeing Science" class="article-image">
+3. article.html:561 - <img src="https://via.placeholder.com/200x200" alt="Dr. Emma Richards" class="author-large-image">
+4. article.html:586 - <img src="https://via.placeholder.com/400x300" alt="Microbiome Article" class="related-image">
+5. article.html:599 - <img src="https://via.placeholder.com/400x300" alt="Sleep Article" class="related-image">
+6. article.html:612 - <img src="https://via.placeholder.com/400x300" alt="Movement Article" class="related-image">
+7. article.html:631 - <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+8. article.html:644 - <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+9. article.html:657 - <img src="https://via.placeholder.com/100x100" alt="Commenter" class="comment-avatar">
+
+## Index Page Images
+1. index.html:164 - <img src="https://placehold.co/600x700/f1f1f1/1a2e34" alt="AP1 Product" class="max-h-[700px] w-auto rounded-lg shadow-xl" data-aos="fade-up">
+2. index.html:208 - <img src="https://placehold.co/600x700/f1f1f1/1a2e34" alt="AP1 Product" class="max-h-[700px] w-auto rounded-lg shadow-xl" data-aos="fade-up">
+3. index.html:699 - <img src="https://placehold.co/600x400/24a43a/ffffff?text=AP1+Product+Pack" alt="AP1 Product" class="rounded-lg">
+4. index.html:900 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Nutrition Guide" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+5. index.html:923 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Athletic Performance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+6. index.html:946 - <img src="https://placehold.co/600x400/f1f1f1/1a2e34" alt="Gut Health" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+
+## Recommended Replacement Pattern
+For all these placeholder images, replace with:
+```html
+<img src="https://placehold.co/600x400?text=ap-1" alt="[Appropriate Alt Text]" class="[Original Classes]">
+```
+
+For product images, use the format:
+```html
+<img src="https://placehold.co/600x400?text=ap-1+[Product Name]" alt="[Product Name]" class="[Original Classes]">
+``` 

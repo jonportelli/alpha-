@@ -1,0 +1,55 @@
+<!-- Currency Selector Component -->
+<div class="currency-selector relative inline-block text-left">
+    <button type="button" class="currency-toggle flex items-center text-sm font-medium text-gray-700 hover:text-ag-green transition-colors" id="currency-menu-button" aria-expanded="false" aria-haspopup="true" aria-label="Select currency">
+        <span class="current-currency">EUR</span>
+        <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <div class="currency-dropdown hidden absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="currency-menu-button" tabindex="-1">
+        <div class="py-1" role="none">
+            <button class="currency-option text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left" role="menuitem" tabindex="-1" data-currency="EUR" data-symbol="€" aria-label="Euro currency">
+                EUR (€)
+            </button>
+            <button class="currency-option text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left" role="menuitem" tabindex="-1" data-currency="USD" data-symbol="$" aria-label="US Dollar currency">
+                USD ($)
+            </button>
+            <button class="currency-option text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left" role="menuitem" tabindex="-1" data-currency="GBP" data-symbol="£" aria-label="British Pound currency">
+                GBP (£)
+            </button>
+            <button class="currency-option text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 w-full text-left" role="menuitem" tabindex="-1" data-currency="BTC" data-symbol="₿" aria-label="Bitcoin currency">
+                BTC (₿)
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Ensure the dropdown is positioned correctly */
+    .currency-selector {
+        position: relative;
+    }
+    
+    .currency-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 100;
+        min-width: 120px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    /* Selected currency styling */
+    .currency-option.selected {
+        background-color: #f3f4f6;
+        font-weight: 500;
+    }
+    
+    /* Focus styling for accessibility */
+    .currency-toggle:focus, 
+    .currency-option:focus {
+        outline: 2px solid #24a43a;
+        outline-offset: 2px;
+    }
+</style> 

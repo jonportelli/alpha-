@@ -1,20 +1,20 @@
 <!-- Scroll Indicator -->
-<div class="scroll-indicator"></div>
+<div class="scroll-indicator" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 
 <!-- Mobile Navigation -->
-<div id="mobile-nav-container" class="block md:hidden">
+<div id="mobile-nav-container" class="block md:hidden" role="navigation" aria-label="Mobile navigation">
     <div class="mobile-nav">
         <div class="mobile-nav-header">
             <a href="/" class="h-12">
                 <img src="https://res.cloudinary.com/deo7swsl9/image/upload/v1744909336/AP1-white_gwc8cx.png" alt="AP1 Logo" width="90" height="36">
             </a>
-            <button id="mobile-nav-toggle" class="mobile-nav-toggle">
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav-menu" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
-        <div id="mobile-nav-menu" class="mobile-nav-menu">
+        <div id="mobile-nav-menu" class="mobile-nav-menu" aria-hidden="true">
             <ul>
                 <li><a href="/shop.html">Shop</a></li>
                 <li><a href="/blog.html">Blog</a></li>
@@ -29,27 +29,29 @@
 </div>
 
 <!-- Desktop Navigation -->
-<nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white">
-    <div class="flex items-center" >
+<nav class="hidden md:flex px-4 py-3 items-center justify-between bg-white" role="navigation" aria-label="Main navigation">
+    <div class="flex items-center">
         <a href="/" class="animate-fade-in">
-            <img src="https://res.cloudinary.com/deo7swsl9/image/upload/v1744909336/AP1-white_gwc8cx.png" alt="AP1 Logo" class="h-12">
+            <img src="https://res.cloudinary.com/deo7swsl9/image/upload/v1744909336/AP1-white_gwc8cx.png" alt="AP1 Logo" class="h-20">
         </a>
     </div>
-    <div class="hidden md:flex space-x-6">
-        <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;">Shop</a>
-        <a href="/blog.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;">Blog</a>
-        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;">About AP1</a>
-        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;">Science</a>
-        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;">Learn</a>
+    <div class="hidden md:flex space-x-6" role="menubar">
+        <a href="/shop.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0s;" role="menuitem" tabindex="0">Shop</a>
+        <a href="/blog.html" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.1s;" role="menuitem" tabindex="0">Blog</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.2s;" role="menuitem" tabindex="0">About AP1</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.3s;" role="menuitem" tabindex="0">Science</a>
+        <a href="#" class="text-sm font-medium text-gray-700 animate-slide-in-left nav-link" style="animation-delay: 0.4s;" role="menuitem" tabindex="0">Learn</a>
     </div>
     <div class="flex items-center space-x-4">
-        <a href="/product-detail.html" class="hidden md:block btn-primary text-sm">Get AP1</a>
-        <a href="#" class="text-sm font-medium text-gray-700 nav-link">Sign In</a>
-        <a href="/shop.html#cart" class="relative text-gray-700 hover:text-green-600 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Include Currency Selector -->
+        <div id="currency-selector-container"></div>
+        <a href="/shop.html" class="hidden md:block btn btn-primary text-sm" role="button" tabindex="0">Get AP1</a>
+        <a href="#" class="text-sm font-medium text-gray-700 nav-link" tabindex="0">Sign In</a>
+        <a href="/shop.html#cart" class="relative text-gray-700 hover:text-ag-green transition-all" aria-label="Shopping cart" tabindex="0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
-            <span class="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart-count">0</span>
+            <span class="absolute -top-2 -right-2 bg-ag-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" aria-live="polite">0</span>
         </a>
     </div>
 </nav>
@@ -214,8 +216,19 @@
 
         if (mobileNavToggle && mobileNavMenu) {
             mobileNavToggle.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
                 this.classList.toggle('active');
                 mobileNavMenu.classList.toggle('active');
+                mobileNavMenu.setAttribute('aria-hidden', isExpanded);
+            });
+            
+            // Add keyboard support for mobile menu
+            mobileNavToggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
             });
         }
 
@@ -226,10 +239,39 @@
                 const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
                 const scrollProgress = window.scrollY / scrollableHeight;
                 scrollIndicator.style.transform = `scaleX(${scrollProgress})`;
+                // Update aria value
+                scrollIndicator.setAttribute('aria-valuenow', Math.round(scrollProgress * 100));
             }
         }
 
         window.addEventListener('scroll', updateScrollIndicator);
         updateScrollIndicator(); // Initialize on page load
+
+        // Load currency selector
+        fetch('/currency-selector.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('currency-selector-container').innerHTML = html;
+            });
+            
+        // Add keyboard navigation for menu items
+        const menuItems = document.querySelectorAll('[role="menuitem"]');
+        
+        menuItems.forEach((item, index) => {
+            item.addEventListener('keydown', function(e) {
+                // Arrow navigation between menu items
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const nextIndex = (index + 1) % menuItems.length;
+                    menuItems[nextIndex].focus();
+                }
+                
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prevIndex = (index - 1 + menuItems.length) % menuItems.length;
+                    menuItems[prevIndex].focus();
+                }
+            });
+        });
     });
 </script> 
