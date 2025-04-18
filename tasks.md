@@ -31,6 +31,7 @@
 
 
 ## Future Tasks
+- [] looping video on homepage
 - [ ] add product search functionality
 - [ ] implement user accounts and login/registration
 - [ ] create checkout process with cart functionality
